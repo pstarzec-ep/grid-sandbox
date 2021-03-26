@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'gs-root',
@@ -8,16 +9,22 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 })
 export class AppComponent {
 
-  columnDefs = [
-    { field: 'make' },
-    { field: 'model' },
-    { field: 'price' }
+  public columnDefs = [
+    { field: 'userId' },
+    { field: 'id' },
+    { field: 'title' },
+    { field: 'completed' },
   ];
 
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxter', price: 72000 }
-  ];
+  public rowData: any[];
 
+  constructor(private api: ApiService,
+              private cdRef: ChangeDetectorRef) {}
+
+  public gridReady($event: any): void {
+    this.api.getTodos().subscribe(data => {
+      this.rowData = data;
+      this.cdRef.markForCheck();
+    });
+  }
 }

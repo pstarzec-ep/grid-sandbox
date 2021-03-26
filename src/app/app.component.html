@@ -1,5 +1,6 @@
 <ag-grid-angular style="height: 100%;"
                  class="ag-theme-alpine"
+                 (gridReady)="gridReady($event)"
                  [rowData]="rowData"
                  [columnDefs]="columnDefs">
 </ag-grid-angular>
