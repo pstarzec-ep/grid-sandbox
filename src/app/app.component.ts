@@ -25,8 +25,14 @@ export class AppComponent {
   public dataSource: IServerSideDatasource = {
     getRows: (params: IServerSideGetRowsParams) => {
       console.log('Getting rows');
-      console.log(params.request);
-      this.api.getTodos().subscribe(data => {
+      const request = params.request;
+      console.log(request);
+      this.api.getTodos({
+        sort: {
+          field: request.sortModel[0]?.colId,
+          order: request.sortModel[0]?.sort,
+        },
+      }).subscribe(data => {
         params.success({ rowData: data });
       });
     },
