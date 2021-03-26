@@ -1,5 +1,4 @@
 import { AgGridModule } from '@ag-grid-community/angular';
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { EnterpriseCoreModule } from '@ag-grid-enterprise/core';
 import { ServerSideRowModelModule } from '@ag-grid-enterprise/server-side-row-model';
@@ -12,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 ModuleRegistry.registerModules([
-  ClientSideRowModelModule,
   EnterpriseCoreModule,
   ServerSideRowModelModule,
 ]);
