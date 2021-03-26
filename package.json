@@ -19,6 +19,11 @@
     "@angular/platform-browser": "~11.2.4",
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
+    "@ag-grid-community/core": "^25.1.0",
+    "@ag-grid-community/angular": "^25.1.0",
+    "@ag-grid-community/client-side-row-model": "^25.1.0",
+    "@ag-grid-enterprise/core": "^25.1.0",
+    "@ag-grid-enterprise/server-side-row-model": "^25.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
