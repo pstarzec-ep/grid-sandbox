@@ -1,13 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@ag-grid-community/core/dist/styles/ag-grid.css';
-@import '~@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
+@use '~@ag-grid-community/core/dist/styles/ag-grid';
+@use '~@ag-grid-community/core/dist/styles/ag-theme-material/sass/ag-theme-material-mixin';
+@use '~@ag-grid-community/core/dist/styles/ag-theme-base/sass/ag-theme-base-mixin';
 
 
 html, body {
   height: 100%;
   max-height: 100%;
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 body {
   margin: 0;
+}
+
+.ag-theme-sandbox {
+  $params: (
+    header-height: 40px,
+    row-height: 40px,
+    font-size: 12px,
+  );
+
+  //@include ag-theme-material-mixin.ag-theme-material($params);
+  @include ag-theme-base-mixin.ag-theme-base($params);
+
+  .ag-header-cell {
+    font-weight: bold;
+    color: slategray;
+  }
+
+  .ag-row-odd {
+    background-color: #f1f1f1;
+  }
 }
